@@ -1,4 +1,4 @@
-const API_URL = 'http://127.0.0.1:8000/v1';
+const API_URL = 'https://api-age.dsm.tec.br/v1';
 
 // Estado da Aplicação
 let token = localStorage.getItem('access_token');
