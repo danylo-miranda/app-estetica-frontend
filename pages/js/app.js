@@ -194,11 +194,12 @@ function renderAtendimentos(lista) {
   if (!atendimentosList) return;
   atendimentosList.innerHTML = '';
 
-  if (lista.length === 0) {
+  if (!lista || lista.length === 0) {
     atendimentosList.innerHTML = `<p style="padding: 15px; color: #666;">Nenhum agendamento encontrado.</p>`;
     return;
   }
 
+  // Com o backend atualizado, 'lista' já vem com os 10 mais recentes da Página 1
   lista.forEach(item => {
     const dataFormatada = new Date(item.data_hora).toLocaleString('pt-BR', {
       day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit'
