@@ -32,8 +32,9 @@
     </div>
   </div>
 
-  <!-- Tela Principal (Dashboard) -->
+  <!-- Tela Principal -->
   <div id="app-screen" class="screen">
+    <!-- Barra Superior -->
     <header class="top-app-bar">
       <div class="brand">
         <span class="material-symbols-outlined">spa</span>
@@ -44,111 +45,244 @@
       </button>
     </header>
 
-    <main class="container">
-      <!-- Atalhos Rápidos com Ícones (Reduz Digitação) -->
-      <section class="quick-actions">
-        <h2>Selecione o Procedimento</h2>
-        <div class="grid-actions">
-          <button type="button" class="chip-card" data-nome="Velox" data-valor="15">
-            <span class="material-symbols-outlined">barcode_reader</span>
-            <span>Velox</span>
-            <small>R$ 15</small>
+    <div class="app-layout">
+      <!-- Menu Lateral de Navegação -->
+      <aside class="sidebar">
+        <nav class="sidebar-nav">
+          <button type="button" class="nav-btn active" onclick="navegar('agendamento', event)">
+            <span class="material-symbols-outlined">add_task</span>
+            <span>Agendamento Rápido</span>
           </button>
-          <button type="button" class="chip-card" data-nome="Radiofrequencia" data-valor="15">
-            <span class="material-symbols-outlined">sensors</span>
-            <span>Radiofrequencia</span>
-            <small>R$ 15</small>
+          <button type="button" class="nav-btn" onclick="navegar('dashboard', event)">
+            <span class="material-symbols-outlined">dashboard</span>
+            <span>Dashboard</span>
           </button>
-          <button type="button" class="chip-card" data-nome="Eletrobody" data-valor="15">
-            <span class="material-symbols-outlined">electric_bolt</span>
-            <span>Eletrobody</span>
-            <small>R$ 15</small>
+          <button type="button" class="nav-btn" onclick="navegar('atendimentos', event)">
+            <span class="material-symbols-outlined">calendar_month</span>
+            <span>Atendimentos</span>
           </button>
-          <button type="button" class="chip-card" data-nome="Pump" data-valor="15">
-            <span class="material-symbols-outlined">arrow_shape_up_stack_2</span>
-            <span>Pump</span>
-            <small>R$ 15</small>
+          <button type="button" class="nav-btn" onclick="navegar('clientes', event)">
+            <span class="material-symbols-outlined">person_search</span>
+            <span>Clientes & Fichas</span>
           </button>
-          <button type="button" class="chip-card" data-nome="Modeladora" data-valor="15">
-            <span class="material-symbols-outlined">massage</span>
-            <span>Modeladora</span>
-            <small>R$ 15</small>
-          </button>
-          <button type="button" class="chip-card" data-nome="Detox" data-valor="15">
-            <span class="material-symbols-outlined">water_do</span>
-            <span>Detox</span>
-            <small>R$ 15</small>
-          </button>
-          <button type="button" class="chip-card" data-nome="Crio 3 horas" data-valor="40">
-            <span class="material-symbols-outlined">snowflake</span>
-            <span>Crio 3 horas</span>
-            <small>R$ 40</small>
-          </button>
-          <button type="button" class="chip-card" data-nome="Crio 1 hora" data-valor="20">
-            <span class="material-symbols-outlined">snowflake</span>
-            <span>Crio 1 hora</span>
-            <small>R$ 20</small>
-          </button>
-          <button type="button" class="chip-card" data-nome="Liposhape" data-valor="17">
-            <span class="material-symbols-outlined">detector_smoke</span>
-            <span>Liposhape</span>
-            <small>R$ 17</small>
-          </button>
-          <button type="button" class="chip-card" data-nome="Limpeza de Pele" data-valor="40">
-            <span class="material-symbols-outlined">mood_heart</span>
-            <span>Limpeza de Pele</span>
-            <small>R$ 40</small>
-          </button>
-          <button type="button" class="chip-card" data-nome="Hybrius" data-valor="15">
-            <span class="material-symbols-outlined">genetics</span>
-            <span>Hybrius</span>
-            <small>R$ 15</small>
-          </button>
-        </div>
-      </section>
+        </nav>
+      </aside>
 
-      <!-- Form de Registro Rápido -->
-      <section class="form-section">
-        <form id="atendimento-form" class="express-form">
-          <div class="form-row">
-            <div class="input-group">
-              <span class="material-symbols-outlined">person</span>
-              <input type="text" id="nome_paciente" placeholder="Nome do Paciente" required>
+      <!-- Conteúdo das Páginas (SPA) -->
+      <main class="container">
+        
+        <!-- TELA 1: AGENDAMENTO RÁPIDO (HOME) -->
+        <div id="view-agendamento" class="tab-content active">
+          <!-- Atalhos Rápidos com Ícones -->
+          <section class="quick-actions">
+            <h2>Selecione o Procedimento</h2>
+            <div class="grid-actions">
+              <button type="button" class="chip-card" data-nome="Velox" data-valor="15">
+                <span class="material-symbols-outlined">barcode_reader</span>
+                <span>Velox</span>
+                <small>R$ 15</small>
+              </button>
+              <button type="button" class="chip-card" data-nome="Radiofrequencia" data-valor="15">
+                <span class="material-symbols-outlined">sensors</span>
+                <span>Radiofrequencia</span>
+                <small>R$ 15</small>
+              </button>
+              <button type="button" class="chip-card" data-nome="Eletrobody" data-valor="15">
+                <span class="material-symbols-outlined">electric_bolt</span>
+                <span>Eletrobody</span>
+                <small>R$ 15</small>
+              </button>
+              <button type="button" class="chip-card" data-nome="Pump" data-valor="15">
+                <span class="material-symbols-outlined">arrow_shape_up_stack_2</span>
+                <span>Pump</span>
+                <small>R$ 15</small>
+              </button>
+              <button type="button" class="chip-card" data-nome="Modeladora" data-valor="15">
+                <span class="material-symbols-outlined">massage</span>
+                <span>Modeladora</span>
+                <small>R$ 15</small>
+              </button>
+              <button type="button" class="chip-card" data-nome="Detox" data-valor="15">
+                <span class="material-symbols-outlined">water_do</span>
+                <span>Detox</span>
+                <small>R$ 15</small>
+              </button>
+              <button type="button" class="chip-card" data-nome="Crio 3 horas" data-valor="40">
+                <span class="material-symbols-outlined">snowflake</span>
+                <span>Crio 3 horas</span>
+                <small>R$ 40</small>
+              </button>
+              <button type="button" class="chip-card" data-nome="Crio 1 hora" data-valor="20">
+                <span class="material-symbols-outlined">snowflake</span>
+                <span>Crio 1 hora</span>
+                <small>R$ 20</small>
+              </button>
+              <button type="button" class="chip-card" data-nome="Liposhape" data-valor="17">
+                <span class="material-symbols-outlined">detector_smoke</span>
+                <span>Liposhape</span>
+                <small>R$ 17</small>
+              </button>
+              <button type="button" class="chip-card" data-nome="Limpeza de Pele" data-valor="40">
+                <span class="material-symbols-outlined">mood_heart</span>
+                <span>Limpeza de Pele</span>
+                <small>R$ 40</small>
+              </button>
+              <button type="button" class="chip-card" data-nome="Hybrius" data-valor="15">
+                <span class="material-symbols-outlined">genetics</span>
+                <span>Hybrius</span>
+                <small>R$ 15</small>
+              </button>
+            </div>
+          </section>
+
+          <!-- Form de Registro Rápido -->
+          <section class="form-section">
+            <form id="atendimento-form" class="express-form">
+              <div class="form-row">
+                <div class="input-group">
+                  <span class="material-symbols-outlined">person</span>
+                  <input type="text" id="nome_paciente" placeholder="Nome do Paciente" required>
+                </div>
+                
+                <div class="input-group">
+                  <span class="material-symbols-outlined">edit_note</span>
+                  <input type="text" id="procedimento" placeholder="Procedimento Selecionado" required>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="input-group">
+                  <span class="material-symbols-outlined">calendar_today</span>
+                  <input type="datetime-local" id="data_hora" required>
+                </div>
+
+                <div class="input-group">
+                  <span class="material-symbols-outlined">payments</span>
+                  <input type="number" step="0.01" id="valor" placeholder="Valor (R$)" required>
+                </div>
+              </div>
+
+              <button type="submit" class="btn-expressive">
+                <span class="material-symbols-outlined">add</span>
+                Agendar Atendimento
+              </button>
+            </form>
+          </section>
+        </div>
+
+        <!-- TELA 2: DASHBOARD -->
+        <div id="view-dashboard" class="tab-content">
+          <section class="dashboard-section">
+            <h2>Métricas & Indicadores</h2>
+            
+            <div class="filter-card">
+              <div class="input-group">
+                <span class="material-symbols-outlined">calendar_month</span>
+                <input type="date" id="dash-inicio">
+              </div>
+              <div class="input-group">
+                <span class="material-symbols-outlined">event</span>
+                <input type="date" id="dash-fim">
+              </div>
+              <button type="button" class="btn-primary" onclick="carregarDashboard()">
+                <span class="material-symbols-outlined">filter_alt</span>
+                Filtrar
+              </button>
+            </div>
+
+            <div class="kpi-grid">
+              <div class="kpi-card">
+                <span class="material-symbols-outlined icon-kpi">event_available</span>
+                <div>
+                  <small>Total de Atendimentos</small>
+                  <h3 id="kpi-atendimentos">0</h3>
+                </div>
+              </div>
+              <div class="kpi-card">
+                <span class="material-symbols-outlined icon-kpi">payments</span>
+                <div>
+                  <small>Faturamento Total</small>
+                  <h3 id="kpi-faturamento">R$ 0,00</h3>
+                </div>
+              </div>
+              <div class="kpi-card">
+                <span class="material-symbols-outlined icon-kpi">analytics</span>
+                <div>
+                  <small>Ticket Médio</small>
+                  <h3 id="kpi-ticket">R$ 0,00</h3>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- TELA 3: ATENDIMENTOS AGENDADOS (PAGINADO) -->
+        <div id="view-atendimentos" class="tab-content">
+          <section class="list-section">
+            <h2>Histórico e Agendamentos</h2>
+            <div id="atendimentos-list" class="cards-grid">
+              <!-- Carregado Dinamicamente -->
             </div>
             
-            <div class="input-group">
-              <span class="material-symbols-outlined">edit_note</span>
-              <input type="text" id="procedimento" placeholder="Procedimento Selecionado" required>
+            <div class="pagination-container">
+              <button type="button" class="btn-icon" onclick="mudarPaginaAtendimentos(-1)">
+                <span class="material-symbols-outlined">chevron_left</span>
+              </button>
+              <span id="atendimentos-pagina-info">Página 1</span>
+              <button type="button" class="btn-icon" onclick="mudarPaginaAtendimentos(1)">
+                <span class="material-symbols-outlined">chevron_right</span>
+              </button>
             </div>
-          </div>
-
-          <div class="form-row">
-            <div class="input-group">
-              <span class="material-symbols-outlined">calendar_today</span>
-              <input type="datetime-local" id="data_hora" required>
-            </div>
-
-            <div class="input-group">
-              <span class="material-symbols-outlined">payments</span>
-              <input type="number" step="0.01" id="valor" placeholder="Valor (R$)" required>
-            </div>
-          </div>
-
-          <button type="submit" class="btn-expressive">
-            <span class="material-symbols-outlined">add</span>
-            Agendar Atendimento
-          </button>
-        </form>
-      </section>
-
-      <!-- Lista de Atendimentos -->
-      <section class="list-section">
-        <h2>Atendimentos Agendados</h2>
-        <div id="atendimentos-list" class="cards-grid">
-          <!-- Carregado Dinamicamente -->
+          </section>
         </div>
-      </section>
-    </main>
+
+        <!-- TELA 4: CLIENTES & FICHAS DE AVALIAÇÃO -->
+        <div id="view-clientes" class="tab-content">
+          <section class="clientes-section">
+            <h2>Gestão de Clientes</h2>
+            
+            <div class="two-columns">
+              <!-- Formulário de Cadastro de Cliente -->
+              <form id="cliente-form" class="express-form" onsubmit="salvarCliente(event)">
+                <h3>Novo Cliente</h3>
+                <div class="input-group">
+                  <span class="material-symbols-outlined">person</span>
+                  <input type="text" id="cli-nome" placeholder="Nome Completo" required minlength="2">
+                </div>
+                <div class="input-group">
+                  <span class="material-symbols-outlined">call</span>
+                  <input type="tel" id="cli-telefone" placeholder="Telefone / WhatsApp">
+                </div>
+                <div class="input-group">
+                  <span class="material-symbols-outlined">mail</span>
+                  <input type="email" id="cli-email" placeholder="E-mail">
+                </div>
+                <div class="input-group">
+                  <span class="material-symbols-outlined">clinical_notes</span>
+                  <textarea id="cli-ficha" placeholder="Ficha de avaliação / Anamnese / Observações" rows="4"></textarea>
+                </div>
+                <button type="submit" class="btn-expressive">
+                  <span class="material-symbols-outlined">person_add</span>
+                  Salvar Cliente
+                </button>
+              </form>
+
+              <!-- Lista de Clientes -->
+              <div class="clientes-list-wrapper">
+                <div class="input-group search-box">
+                  <span class="material-symbols-outlined">search</span>
+                  <input type="text" id="cli-busca" placeholder="Buscar por nome..." oninput="buscarClientes()">
+                </div>
+                <div id="clientes-list" class="cards-grid">
+                  <!-- Carregado Dinamicamente -->
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+      </main>
+    </div>
   </div>
 
   <script src="/pages/js/app.js"></script>
